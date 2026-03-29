@@ -1,4 +1,9 @@
-package lab2;
+package lab3_2;
+
+import lab2.Car;
+import lab2.Client;
+import lab2.DamageReport;
+import lab2.RentalOrder;
 
 public class RentalFacade {
 
