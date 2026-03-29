@@ -1,4 +1,4 @@
-package lab3;
+package lab3.pract1;
 
 public class Circle implements Shape{
     int r = 10;

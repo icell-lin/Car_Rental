@@ -1,4 +1,4 @@
-package lab3_2;
+package lab3.pract2;
 
 import lab2.Car;
 import lab2.Client;

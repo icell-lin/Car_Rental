@@ -1,4 +1,4 @@
-package lab3;
+package lab3.pract1;
 
 public class Point implements Shape {
     @Override

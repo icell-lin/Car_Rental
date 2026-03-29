@@ -1,4 +1,4 @@
-package lab3;
+package lab3.pract1;
 
 public class Square implements Shape{
 
