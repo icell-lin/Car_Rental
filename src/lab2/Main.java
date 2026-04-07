@@ -1,5 +1,10 @@
 package lab2;
 
+import lab4.pract2.ApprovedState;
+import lab4.pract2.DamagedState;
+import lab4.pract2.PendingState;
+import lab4.pract2.ReturnedState;
+
 public class Main {
     public static void main(String[] args) {
         Car car1 = new Car();
@@ -39,5 +44,12 @@ public class Main {
         damageReport.setRepairCost(180);
 
         System.out.println(damageReport.toString());
+
+        rentalOrder.setState(new PendingState());
+        rentalOrder.setState(new ApprovedState());
+        rentalOrder.setState(new ReturnedState());
+        rentalOrder.setState(new DamagedState());
+
+
     }
     }

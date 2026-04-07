@@ -1,5 +1,7 @@
 package lab2;
 
+import lab4.pract2.OrderState;
+
 public class RentalOrder {
     private int id;
     private String startDate;
@@ -11,9 +13,15 @@ public class RentalOrder {
     private Car car;
     private Administrator administrator;
     private DamageReport damageReport;
+    private OrderState state;
 
     public RentalOrder() {
 
+    }
+
+    public void setState(OrderState state) {
+        this.state = state;
+        state.handleState();
     }
 
     public RentalOrder(int id, String startDate, String endDate, String status, String paymentStatus) {
