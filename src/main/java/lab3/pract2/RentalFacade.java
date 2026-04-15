@@ -1,26 +1,26 @@
 package lab3.pract2;
 
-import lab2.Car;
-import lab2.Client;
-import lab2.DamageReport;
-import lab2.RentalOrder;
+import lab5.Car;
+import lab5.Client;
+import lab5.DamageReport;
+import lab5.RentalOrder;
 
 public class RentalFacade {
 
     // створення автомобіля
-    public Car addCar(String brand, String model, int yearGraduation, int id, double pricePerDay){
+    public Car addCar(String brand, String model, int yearGraduation, int id, double pricePerDay) {
         Car car = new Car();
         car.setBrand(brand);
         car.setModel(model);
         car.setYearGraduation(yearGraduation);
-        car.setId(id);
+        car.setId((long) id); // Виправлено: setId замість setID та додано cast
         car.setPricePerDay(pricePerDay);
-        car.setAvilable(true);
+        car.setAvailable(true); // Тепер запрацює, коли увімкнеш Annotation Processing
         return car;
     }
 
     // створення клієнту
-    public Client registerClient(int id, String lastName, String firstName, String passportNumber, String phone, String email){
+    public Client registerClient(long id, String lastName, String firstName, String passportNumber, String phone, String email){
         Client client = new Client();
         client.setId(id);
         client.setLastName(lastName);
@@ -32,7 +32,7 @@ public class RentalFacade {
     }
 
     // створення замовлення оренди
-    public RentalOrder createOrder(int id, Client client, Car car, String start, String end) {
+    public RentalOrder createOrder(long id, Client client, Car car, String start, String end) {
         RentalOrder order = new RentalOrder();
         order.setId(id);
         order.setClient(client);
@@ -40,7 +40,7 @@ public class RentalFacade {
         order.setStartDate(start);
         order.setEndDate(end);
         order.setStatus("в очікувані");
-        car.setAvilable(false);
+        car.setAvailable(false);
         return order;
     }
 
@@ -54,17 +54,17 @@ public class RentalFacade {
     public void rejectOrder(RentalOrder order, String reason) {
         order.setStatus("відхилено");
         order.setRejectionReason(reason);
-        order.getCar().setAvilable(true); // машина знову доступна
+        order.getCar().setAvailable(true); // машина знову доступна
     }
 
     // повернення автомобіля
     public void returnCar(RentalOrder order) {
         order.setStatus("returned");
-        order.getCar().setAvilable(true); // машина знову доступна
+        order.getCar().setAvailable(true); // машина знову доступна
     }
 
     // акт пошкодження
-    public DamageReport addDamageReport(int id, RentalOrder order, String description, double cost) {
+    public DamageReport addDamageReport(long id, RentalOrder order, String description, double cost) {
         DamageReport report = new DamageReport();
         report.setId(id);
         report.setDescription(description);
