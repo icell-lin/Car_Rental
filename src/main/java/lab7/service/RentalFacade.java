@@ -23,16 +23,13 @@ public class RentalFacade {
     public RentalOrder createBooking(Long carId, Integer days) {
         var car = carRepository.findById(carId)
                 .orElseThrow(() -> new RuntimeException("Авто не знайдено"));
-
         RentalOrder order = RentalOrder.builder()
                 .status("PENDING")
                 .build();
 
         Double totalPrice = rentalService.calculateFinalPrice(car.getPricePerDay(), days);
-
         RentalOrder savedOrder = orderRepository.save(order);
         rentalService.processOrder(savedOrder);
-
         return savedOrder;
     }
 }

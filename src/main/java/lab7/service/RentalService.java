@@ -8,10 +8,8 @@ import org.springframework.stereotype.Service;
 public class RentalService {
 
     public void processOrder(RentalOrder order) {
-        // Логіка станів (з попередніх кроків)
-        System.out.println("Обробка замовлення №" + order.getId());
+        System.out.println("Обробка замовлення " + order.getId());
     }
-
     public Double calculateFinalPrice(Double basePrice, Integer days) {
         if (days > 7) return (basePrice * days) * 0.8;
         return basePrice * days;

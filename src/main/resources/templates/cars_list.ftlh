@@ -11,7 +11,6 @@
 </head>
 <body>
 <h1>${title}</h1>
-
 <table>
     <thead>
     <tr>
