@@ -31,6 +31,7 @@ public class RentalFacade {
         RentalOrder savedOrder = orderRepository.save(order);
         rentalService.processOrder(savedOrder);
         return savedOrder;
+
     }
 }
 
