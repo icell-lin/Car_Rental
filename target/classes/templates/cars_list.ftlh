@@ -11,7 +11,6 @@
 </head>
 <body>
 <h1>${title}</h1>
-
 <table>
     <thead>
     <tr>
@@ -34,7 +33,5 @@
     </#list>
     </tbody>
 </table>
-
-<p>Додаток підтримує кирилицю (UTF-8).</p>
 </body>
 </html>
